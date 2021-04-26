@@ -1,0 +1,34 @@
+*,:before, :after{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'verdana';
+    font-size:16px;
+    line-height: 1.4;
+    color:#fff;
+    background: #353535;
+}
+.heading{
+    background: crimson;
+    text-align: center;
+    font-size: 30px;
+    line-height: 50px;
+    font-style:italic;
+    border-bottom:3px solid #fff;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.box{
+    background:crimson;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    min-height:calc(100vh - 50px);
+}
