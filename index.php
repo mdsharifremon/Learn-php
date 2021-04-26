@@ -12,7 +12,11 @@
         <div class="box">
 
 
-pactrice goes here
+<?php
+
+echo "pactrice goes here";
+
+?>
 
         </div>
 <script src="learn.js"></script>
