@@ -24,11 +24,50 @@ body{
 .box{
     background:crimson;
     display: flex;
-    justify-content: center;
-    align-items: center;
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     min-height:calc(100vh - 50px);
 }
+.php, .js{
+    width:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    position:relative;
+}
+.php{
+    border-right:2px solid #fff;
+}
+.js{
+    border-left:2px solid #fff;
+}
+hr{
+    width:100%;
+    display:block;
+}
+span{
+    position:absolute;
+    top:0;
+    font-size:24px;
+    font-weight:600;
+    display:block;
+    padding:5px 0;
+
+}
+li{
+    display: inline-block;
+    padding:0 10px;
+}
+table, th,
+td{
+    border-color: #fff;
+}
+table {
+    border-spacing: 2px;
+    border-collapse: collapse;
+}
+td,th {padding: 6px;}
