@@ -35,9 +35,11 @@
         /* First parameter is used to define from where start extracting.
         Second parameter is used to define to which index it will extract.
         Second parameter is optional. It it is not defined it will extract rest of the index. */
+
         Here it will return  newStr = 'is my string'
         difference between these functions is 
         var newStr = str.slice(-13, -5);
+
         /* can define negative index.
         If negative it will start extracting from the last index to first.*/
         var newStr = str.substring(5,7) 
@@ -82,7 +84,7 @@
 
     var str = 'SHARIF'
     var str = str.toLowerCase();
-    // It will return str = 'sharif' => make it Lowercase
+    // It will return str = 'sharif' => make it Lowercase.
 
     ## String Length
 
