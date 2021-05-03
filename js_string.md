@@ -6,8 +6,8 @@
         var index = str.indexOf('is');
         var index = srt.lastIndexOf('is');
         var index = str.search('is');
-        /* Return the index of is. Normally it start searching from start index of 0.
-        But lastIndexOf() function will start searching from the last of index. */
+        /* Return the index of is. Normally it start searching from start (index of 0).
+        But lastIndexOf() function will start searching from the last index number. */
 
         var index = str.indexOf('is', 5);
         var index = str.lastIndexOf('is', 5);
