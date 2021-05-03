@@ -2,7 +2,7 @@
 
 ## Array Count 
 ```php
-        sizeof($array_variable, 1); <br>
+        sizeof($array_variable, 1);
         count($array_variable, 1);
 
         /* It return the total value of an array in numaric number.
