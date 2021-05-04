@@ -2,7 +2,7 @@
 
 ## Table Of Content
 
-* [Array Count](#array-count)
+* [Array Length](#array-count)
 * [Array Search](#array-search)
 * [Array Replace](#array-replace)
 * [Array Add & Delete](#array-add_delete)
@@ -11,7 +11,7 @@
 
 
 <a name="array-count"></a>
-## Array Count
+## Array Length
 
 ```php
 1. sizeof()
@@ -25,8 +25,7 @@ count($array_variable, 1);
 The second parameter is to show the value of multidimensional array.*/
 
 array_count_values($array_variable);
-/* It return a complete new array with value. it can not be printed with echo.
-It can be printed with print_r() function.*/
+/* It return a complete new array with value.*/
 ```
 
 <a name="array-search"></a>

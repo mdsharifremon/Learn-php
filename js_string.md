@@ -73,7 +73,7 @@
     *** If you want to change in multiple places you can use
 
     var newStr = str.replace(/sharif/g, 'remon').
-    // It will replce every sharif to remon. 
+    // It will replace every sharif to remon. 
     // Will return my name is remon. remon is my name.
 
     ## String Convert
