@@ -15,6 +15,14 @@
 <div class="php">
 <span>PHP<hr/></span>
 <?php
+       $a = array('one', 'two', 'three');
+       $b = array('three', 'four', 5);
+       $d = array(5, 'six', 5);
+       $c = array_merge($a, $b, $d);
+
+echo "<pre>";
+print_r($c);
+echo "</pre>";
 
 ?>
 </div>
