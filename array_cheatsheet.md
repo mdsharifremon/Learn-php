@@ -7,7 +7,7 @@
 * [Array Replace](#array-replace)
 * [Array Add & Delete](#array-add_delete)
 * [Array Merge & Combine](#array-merge)
-* [Array Search](#array-search)
+* [Array Slice](#array-slice)
 
 
 <a name="array-count"></a>
@@ -129,4 +129,26 @@ It return one array into key and another array into its value.
 
 Note: Both arrays index should be same.
 If one array have 5 value, another one should have 5 value.
+```
+<a name="array-merge"></a>
+
+## Array Slice
+
+```php
+1. array_slice()
+2. array_splice();
+
+var $arry = array('one', 'two', 'three')
+1. array_slice($arry_variable, 1, 2, true);
+
+It will return $c = array(1 => 'two', 2 => 'three')
+/* It will return a new array. 2nd parameter is from where start slicing.
+3rd parameter is how many value to pick.
+4th parameter is to pick the same index from the existing array */
+
+2. array_splice($arry, starting index 0, length 1, $array_2 );
+
+I will not return new array. It will modify existing array.
+
+
 ```
