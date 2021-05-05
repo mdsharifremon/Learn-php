@@ -235,26 +235,36 @@ array_uintersect_uassoc($arr, $arr2, key compare function, value compare functio
 8. array_udiff_uassoc();
 
 array_diff($arr, $arr2);
-# It will compare difference only values among arrays and return a new array with unmatched values.
+/* It will compare difference only values among 
+arrays and return a new array with unmatched values. */
 
 array_udiff($arr, $arr2, compare function);
-# It will compare difference only values with user defined function among arrays and return a new array with unmatched values. 
+/* It will compare difference only values with 
+user defined function among arrays and return 
+a new array with unmatched values. */ 
 
 array_diff_key($arr, $arr2);
-# It will compare difference only keys among arrays and return a new array with unmatched keys.
+/* It will compare difference only keys among 
+arrays and return a new array with unmatched keys.*/
 
 array_diff_ukey($arr, $arr2, compare function);
-# It will compare difference only keys with user defined function among arrays and return a new array with unmatched keys.  
+/* It will compare difference only keys with 
+user defined function among arrays and return a new array with unmatched keys. */
 
 array_diff_assoc($arr, $arr2);
-# It will compare difference keys & values among arrays and return a new array with unmatched keys and values.
+/* It will compare difference keys & values among
+arrays and return a new array with unmatched keys and values. */
 
 array_diff_uassoc($arr, $arr2, compare function); 
 array_udiff_assoc($arr, $arr2, compare function);
-# these two are same. It will compare difference keys & values with user defined function among arrays and return a new array with unmatched keys & values.
+/* these two are same. It will compare difference keys & values with 
+user defined function among arrays and 
+return a new array with unmatched keys & values. */
 
 array_udiff_uassoc($arr, $arr2, key compare function, value compare function);
-# It will compare difference keys & values with 2 user defined individual key & value function among arrays and return a new array with unmatched keys & values.
+/* It will compare difference keys & values with 
+2 user defined individual key & value function 
+among arrays and return a new array with unmatched keys & values. */
 ```
 
 
