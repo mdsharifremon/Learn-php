@@ -129,7 +129,7 @@ it will return $f = array('one' => 1, 'two' => 2, 'three' => 3);
 # It is used only with index array. 
 # It return one array into key and another array into its value.
 
-# Note: Both arrays index should be same.
+Note: Both arrays index should be same.
 # If one array have 5 value, another one should have 5 value.
 ```
 <a name="array-merge"></a>
@@ -195,7 +195,7 @@ array_diff_key($arr, $arr2, $arr3)
 1. array_intersect()
 1. array_intersect()
 
-## Note: array_intersect() all of this kind of functions will return a new array with matched key & value.
+Note: array_intersect() all of this kind of functions will return a new array with matched key & value.
 
 array_intersect($arr, $arr2)
 # It will match only values in different arrays.
