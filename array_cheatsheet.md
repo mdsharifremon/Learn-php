@@ -7,7 +7,8 @@
 * [Array Replace](#array-replace)
 * [Array Add & Delete](#array-add_delete)
 * [Array Merge & Combine](#array-merge)
-* [Array Slice](#array-slice)
+* [Array Splice](#array-slice)
+* [Array Key](#array-key)
 
 
 <a name="array-count"></a>
@@ -148,6 +149,36 @@ It will return $c = array(1 => 'two', 2 => 'three')
 2. array_splice($arry, starting index 0, length 1, $array_2 );
 
 I will not return new array. It will modify existing array.
-
-
 ```
+<a name="array-key"></a>
+
+## Array Key
+
+```php 
+1. array_keys()
+2. array_key_first()
+3. array_key_last()
+4. array_key_exists() / key_exists()
+5. array_intersect_key()
+6. array_diff_key()
+
+array_keys($arr,keyname, strict);
+# it will return a new array with key name.
+
+array_key_first($arr)
+# it will return the first key of existing array.
+
+array_key_last($arr)
+# it will return the last key of existing array.
+
+array_key_exists(keyname, $arr, ) / key_exists(keyname, $arr);
+# it will return true or false upon the key existence. array.
+
+array_intersect_key($arr, $arr2, $arr3)
+# it will return a new array with the matched key in array one.
+
+array_diff_key($arr, $arr2, $arr3)
+# it will return a new array with the unmatched/difference key in array one.
+```
+
+

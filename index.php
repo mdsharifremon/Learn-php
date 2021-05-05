@@ -16,16 +16,12 @@
 <span>PHP<hr/></span>
 <?php
 
-
-$a = array('one', 'two', 'three', 'four');
-
-$len = 0;
-$i = 0;
-
+$arr = array('one' => 'one', 'two' => 'two', 'three' => 'three');
 
 echo "<pre>";
-print_r($a);
+print_r(array_key_last($arr));
 echo "</pre>";
+
 
 ?>
 </div>
