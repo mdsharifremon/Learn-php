@@ -263,8 +263,8 @@ return a new array with unmatched keys & values. */
 
 array_udiff_uassoc($arr, $arr2, key compare function, value compare function);
 /* It will compare difference keys & values with 
-2 user defined individual key & value function 
-among arrays and return a new array with unmatched keys & values. */
+2 user defined individual key & value function among
+arrays and return a new array with unmatched keys & values. */
 ```
 
 
