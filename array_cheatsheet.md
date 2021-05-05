@@ -9,7 +9,8 @@
 * [Array Merge & Combine](#array-merge)
 * [Array Splice](#array-slice)
 * [Array Key](#array-key)
-* [Array Intersect](#array-intersect)
+* [Array Match/Intersect](#array-intersect)
+* [Array Difference](#array-diff)
 
 
 <a name="array-count"></a>
@@ -183,16 +184,16 @@ array_diff_key($arr, $arr2, $arr3)
 # it will return a new array with the unmatched/difference key in array one.
 ```
 <a name="array-intersect"></a>
-## Array Intersect
+## Array Match or Intersect
 
 ```php
 1. array_intersect()
-2. array_intersect_key()
-3. array_intersect_assoc()
-4. array_intersect_uassoc()
-5. array_uintersect_assoc()
-6. array_uintersect()
-7. array_intersect_ukey()
+2. array_uintersect()
+3. array_intersect_key()
+4. array_intersect_ukey()
+5. array_intersect_assoc()
+6. array_intersect_uassoc()
+7. array_uintersect_assoc()
 8. array_uintersect_uassoc();
 
 
@@ -219,7 +220,41 @@ array_uintersect_assoc($arr, $arr2, compare function);
 
 array_uintersect_uassoc($arr, $arr2, key compare function, value compare function);
 # it will match keys and values with user defined two individual key & value compare function.
+```
+<a name="array-diff"></a>
 
+## Array Difference
+```php
+1. array_diff()
+2. array_udiff()
+3. array_diff_key()
+4. array_diff_ukey()
+5. array_diff_assoc()
+6. array_diff_uassoc()
+7. array_udiff_assoc()
+8. array_udiff_uassoc();
+
+array_diff($arr, $arr2);
+# It will compare difference only values among arrays and return a new array with unmatched values.
+
+array_udiff($arr, $arr2, compare function);
+# It will compare difference only values with user defined function among arrays and return a new array with unmatched values. 
+
+array_diff_key($arr, $arr2);
+# It will compare difference only keys among arrays and return a new array with unmatched keys.
+
+array_diff_ukey($arr, $arr2, compare function);
+# It will compare difference only keys with user defined function among arrays and return a new array with unmatched keys.  
+
+array_diff_assoc($arr, $arr2);
+# It will compare difference keys & values among arrays and return a new array with unmatched keys and values.
+
+array_diff_uassoc($arr, $arr2, compare function); 
+array_udiff_assoc($arr, $arr2, compare function);
+# these two are same. It will compare difference keys & values with user defined function among arrays and return a new array with unmatched keys & values.
+
+array_udiff_uassoc($arr, $arr2, key compare function, value compare function);
+# It will compare difference keys & values with 2 user defined individual key & value function among arrays and return a new array with unmatched keys & values.
 ```
 
 
