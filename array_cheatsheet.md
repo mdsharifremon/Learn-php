@@ -187,21 +187,38 @@ array_diff_key($arr, $arr2, $arr3)
 
 ```php
 1. array_intersect()
-1. array_intersect_key()
-1. array_intersect_assoc()
-1. array_intersect()
-1. array_intersect()
-1. array_intersect()
-1. array_intersect()
-1. array_intersect()
+2. array_intersect_key()
+3. array_intersect_assoc()
+4. array_intersect_uassoc()
+5. array_uintersect_assoc()
+6. array_uintersect()
+7. array_intersect_ukey()
+8. array_uintersect_uassoc();
+
 
 Note: array_intersect() all of this kind of functions will return a new array with matched key & value.
 
-array_intersect($arr, $arr2)
+array_intersect($arr, $arr2);
 # It will match only values in different arrays.
 
- array_intersect_key()
- # It will match only keys in different arrays.
+array_uintersect($arr, $arr2, compare function);
+# it will match only values with user defined compare function. 
+
+array_intersect_key($arr, $arr2);
+# It will match only keys in different arrays.
+
+array_intersect_ukey($arr, $arr2, compare function);
+# it will match only keys with user defined compare function. 
+
+array_intersect_assoc($arr, $arr2);
+# It will match keys & values in different arrays.
+
+array_intersect_uassoc($arr, $arr2, compare function); 
+array_uintersect_assoc($arr, $arr2, compare function);
+# these two are same. it will match keys and values with user defined compare function.
+
+array_uintersect_uassoc($arr, $arr2, key compare function, value compare function);
+# it will match keys and values with user defined two individual key & value compare function.
 
 ```
 
