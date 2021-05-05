@@ -112,8 +112,8 @@ It wll return $b = array('three');
 # Only the last value.
 
 array_push($a, 'four', 'five', 'six');
-It will return $a = array('one', 'two', 'three', 'four', 'five', 'six');
-# It will add new values at last of existing array. It will not create a new array.
+Return $a = array('one', 'two', 'three', 'four', 'five', 'six');
+# Add new values at last of existing array. It will not create a new array.
 
 array_unshift($a) is same like array_push($a);
 # Only Difference is array_unshift() will add new values in first.
@@ -133,7 +133,7 @@ $d = array('five', 'six', 'seven');
 $e = array( 1,2,3);
 
 $c = array_merge($a, $b, $d);
-it will return $c = array('one', 'two', 'three', 'three', 'four', 'five','five', 'six', 'seven')
+Return $c = array('one', 'two', 'three', 'three', 'four', 'five','five', 'six', 'seven')
 
 # Return a new array and merge two/ three array in a new array.
 # When it is associative array it will replace the value where kew is same. 
@@ -149,7 +149,7 @@ It will create a new associative array inside the array.
 It is used with multidimensional associative array.*/
 
 $f = array_combine($a, $e);
-it will return $f = array('one' => 1, 'two' => 2, 'three' => 3);
+Return $f = array('one' => 1, 'two' => 2, 'three' => 3);
 
 # It is used only with index array. 
 # It return one array into key and another array into its value.
@@ -168,7 +168,7 @@ Note: Both arrays index should be same.
 var $arry = array('one', 'two', 'three')
 1. array_slice($arry_variable, 1, 2, true);
 
-It will return $c = array(1 => 'two', 2 => 'three')
+Return $c = array(1 => 'two', 2 => 'three')
 # Return a new array. 2nd parameter is from where start slicing.
 # 3rd parameter is how many value to pick.
 # 4th parameter is to pick the same index from the existing array 
@@ -295,7 +295,7 @@ arrays and return a new array with unmatched keys & values. */
 
 
 
-## Others Array
+## Other Array Methods
 
 <a name="array-values"></a>
 
