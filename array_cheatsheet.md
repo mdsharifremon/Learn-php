@@ -2,16 +2,33 @@
 
 ## Table Of Content
 
-* [Array Length](#array-count)
-* [Array Search](#array-search)
-* [Array Replace](#array-replace)
-* [Array Add & Delete](#array-add_delete)
-* [Array Merge & Combine](#array-merge)
-* [Array Splice](#array-slice)
-* [Array Key](#array-key)
-* [Array Match/Intersect](#array-intersect)
-* [Array Difference](#array-diff)
+* [Array Length][1]
+* [Array Search][2]
+* [Array Replace][3]
+* [Array Add & Delete][4]
+* [Array Merge & Combine][5]
+* [Array Splice][6]
+* [Array Key][7]
+* [Array Match/Intersect][8]
+* [Array Difference][9]
 
+[1]: <#array-count> "1. sizeof()  2. count()   3.array_count_values()"
+
+[2]: <#array-search> "1. in_array()  2. array_search()"
+
+[3]: <#array-replace> "1. array_replace()   2. array_replace_recursive()"
+
+[4]: <#array-add_delete> "1. array_pop()  2. array_shift()  3. array_push()  4. array_unshift()"
+
+[5]: <#array-merge> "1. array_merge()  2. array_merge_recursive()  3. array_combine()"
+
+[6]: <#array-slice> "1. array_slice()  2. array_splice()"
+
+[7]: <#array-key> "1.array_keys()  2. array_key_first()  3. array_key_last()  4. array_key_exists()/ key_exists()  5.array_intersect_key()  6.array_diff_key()"
+
+[8]: <#array-intersect> "1. array_intersect()  2. array_uintersect()  3. array_intersect_key()  4. array_intersect_ukey()  5. array_intersect_assoc()  6. array_intersect_uassoc()  7. array_uintersect_assoc()  8. array_uintersect_uassoc();"
+
+[9]: <#array-diff> "1. array_diff()  2. array_udiff()  3. array_diff_key()  4. array_diff_ukey()  5. array_diff_assoc()  6. array_diff_uassoc()  7. array_udiff_assoc()  8. array_udiff_uassoc()"
 ## Others Array
 
 * [Array_Values()](#array-values)
