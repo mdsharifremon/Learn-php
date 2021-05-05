@@ -9,6 +9,7 @@
 * [Array Merge & Combine](#array-merge)
 * [Array Splice](#array-slice)
 * [Array Key](#array-key)
+* [Array Intersect](#array-intersect)
 
 
 <a name="array-count"></a>
@@ -26,7 +27,7 @@ count($array_variable, 1);
 The second parameter is to show the value of multidimensional array.*/
 
 array_count_values($array_variable);
-/* It return a complete new array with value.*/
+# It return a complete new array with value.
 ```
 
 <a name="array-search"></a>
@@ -45,7 +46,7 @@ Usually it is used with condition.*/
 
 array_search('search term', $array_variable);
 
-/* It will return the index or key of existing array. */
+# It will return the index or key of existing array.
 ```
 <a name="array-replace"></a>
 
@@ -60,7 +61,7 @@ If there is third or fourth array that will replace the previous array
 It will return a new array.*/
 
 2. array_replace_recursive($first_array, $second_array);
-/* It is used with multidimensional associative array.*/
+# It is used with multidimensional associative array.
 ```
 <a name="array-add_delete"></a>
 
@@ -79,19 +80,18 @@ It will return $a = array('one', 'two')
 It will delete last value of existing array. */
        
 array_shift($a) is same like array_pop($a);
-// Only Difference is array_shift() will delete the first value.
+# Only Difference is array_shift() will delete the first value.
 
 If you store it in a new variable $b = array_pop($a);
 It wll return $b = array('three');
-// Only the last value.
+# Only the last value.
 
 array_push($a, 'four', 'five', 'six');
 It will return $a = array('one', 'two', 'three', 'four', 'five', 'six');
-
-// It will add new values at last of existing array. It will not create a new array.
+# It will add new values at last of existing array. It will not create a new array.
 
 array_unshift($a) is same like array_push($a);
-// Only Difference is array_unshift() will add new values in first.
+# Only Difference is array_unshift() will add new values in first.
 ```
 <a name="array-merge"></a>
 
@@ -106,6 +106,7 @@ $a = array('one', 'two', 'three');
 $b = array('three', 'four', 'five');
 $d = array('five', 'six', 'seven');
 $e = array( 1,2,3);
+
 $c = array_merge($a, $b, $d);
 it will return $c = array('one', 'two', 'three', 'three', 'four', 'five','five', 'six', 'seven')
 
@@ -113,22 +114,23 @@ it will return $c = array('one', 'two', 'three', 'three', 'four', 'five','five',
 When it associative array it will replace the value where kew is same. */
 
 $c = $a + $b works same as array_merge();
-Difference is  in $a + $b first value will exist, next will be deleted.(if key match).
+# Difference is  in $a + $b first value will exist, next will be deleted.(if key match).
 
 array_merge_recursive($a, $b)
-
 is same like array_merge($a, $b);
-Difference is if kew match it will not replace.
+
+/* Difference is if kew match it will not replace.
 It will create a new associative array inside the array.
-It is used with multidimensional associative array.
+It is used with multidimensional associative array.*/
 
 $f = array_combine($a, $e);
 it will return $f = array('one' => 1, 'two' => 2, 'three' => 3);
-It is used only with index array. 
-It return one array into key and another array into its value.
 
-Note: Both arrays index should be same.
-If one array have 5 value, another one should have 5 value.
+# It is used only with index array. 
+# It return one array into key and another array into its value.
+
+# Note: Both arrays index should be same.
+# If one array have 5 value, another one should have 5 value.
 ```
 <a name="array-merge"></a>
 
@@ -148,7 +150,7 @@ It will return $c = array(1 => 'two', 2 => 'three')
 
 2. array_splice($arry, starting index 0, length 1, $array_2 );
 
-I will not return new array. It will modify existing array.
+# It will not return new array. It will modify existing array.
 ```
 <a name="array-key"></a>
 
@@ -179,6 +181,28 @@ array_intersect_key($arr, $arr2, $arr3)
 
 array_diff_key($arr, $arr2, $arr3)
 # it will return a new array with the unmatched/difference key in array one.
+```
+<a name="array-intersect"></a>
+## Array Intersect
+
+```php
+1. array_intersect()
+1. array_intersect_key()
+1. array_intersect_assoc()
+1. array_intersect()
+1. array_intersect()
+1. array_intersect()
+1. array_intersect()
+1. array_intersect()
+
+## Note: array_intersect() all of this kind of functions will return a new array with matched key & value.
+
+array_intersect($arr, $arr2)
+# It will match only values in different arrays.
+
+ array_intersect_key()
+ # It will match only keys in different arrays.
+
 ```
 
 
