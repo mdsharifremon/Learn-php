@@ -51,10 +51,10 @@
 * [Array_Walk & Recursive()](#array-walk "Run a Function For Each Value")
 * [Array_Map()](#array-map "Run a Function For Each Value and Return a New Array")
 * [Array_Reduce()](#array-reduce "Run a Function For Each Value and Return a String")
-* [List()](#list" "Return Values and assign to individual variables")
-* [Extract()](#extract" "Convert every key to variable and assign value as value")
-* [Compact()](#compact" "Convert some variables to a associative array")
-* [Range()](#range" "Create an array containing a range of elements from beginning to ending number or letter")
+* [List()](#list "Return Values and assign to individual variables")
+* [Extract()](#extract "Convert every key to variable and assign value as value")
+* [Compact()](#compact "Convert some variables to a associative array")
+* [Range()](#range "Create an array containing a range of elements from beginning to ending number or letter")
 
 
 
