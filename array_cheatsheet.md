@@ -24,7 +24,7 @@
 
 [6]: <#array-slice> "1. array_slice()  2. array_splice()"
 
-[7]: <#array-key> "1.array_keys()  2. array_key_first()  3. array_key_last()  4. array_key_exists()/ key_exists()  5.array_intersect_key()  6.array_diff_key()"
+[7]: <#array-key> "1.array_keys()  2. array_key_first()  3. array_key_last()  4. array_key_exists()/ key_exists()  5.array_intersect_key()  6.array_diff_key()  7. array_change_key_case() 8. array_fill_keys()"
 
 [8]: <#array-intersect> "1. array_intersect()  2. array_uintersect()  3. array_intersect_key()  4. array_intersect_ukey()  5. array_intersect_assoc()  6. array_intersect_uassoc()  7. array_uintersect_assoc()  8. array_uintersect_uassoc();"
 
@@ -32,10 +32,20 @@
 
 ## Other Array Methods
 
-* [Array_Values()](#array-values)
-* [Array_Unique()](#array-unique)
-* [Array_Column()](#array-column)
-* [Array_Chunk()](#array-chunk)
+* [Array_Values()](#array-values "Return All Values")
+* [Array_Unique()](#array-unique "Return Unique Values & Remove Matched")
+* [Array_Column()](#array-column "Pick all Values From A column/Key")
+* [Array_Chunk()](#array-chunk "Pair Value in a New Array")
+* [Array_Flip()](#array-flip "Flip Key To Value & Value To Key")
+* [Array_Sum()](#array-sum "Sum Of All Values")
+* [Array_Product()](#array-product "Multiply All Values")
+* [Array_Rand()](#array-rand "Return Random Key/Index number")
+* [Shuffle()](#array-shuffle "Shuffle All Values Randomly and Remove Keys")
+* [Array_Fill()](#array-fill "Fill a Array with a Fixed Value")
+* [Array_Walk & Recursive()](#array-walk "Run a Function For Each Value")
+* [Array_Map()](#array-map "Run a Function For Each Value and Return a New Array")
+* [Array_Reduce()](#array-reduce "Run a Function For Each Value and Return a String")
+
 
 
 
@@ -188,6 +198,8 @@ Return $c = array(1 => 'two', 2 => 'three')
 4. array_key_exists() / key_exists()
 5. array_intersect_key()
 6. array_diff_key()
+7. array_change_key_case()
+8. array_fill_keys()
 
 array_keys($arr,'keyname', strict);
 # Return a new array with key name.
@@ -206,6 +218,13 @@ array_intersect_key($arr, $arr2, $arr3)
 
 array_diff_key($arr, $arr2, $arr3)
 # Return a new array with the unmatched/difference key in array one.
+
+array_change_key_case($arr, CASE_UPPER/CASE_LOWER).
+# Return the key transform to uppercase or lowercase.
+
+array_fill_keys($arr of keys,value);
+# Return a new array with a fixed value to all keys.
+
 ```
 <a name="array-intersect"></a>
 ## Array Match or Intersect
@@ -324,5 +343,79 @@ array_chunk($arr, size - 2, preserve value - true);
 # Return a new array with paired value of existing array.
 # Size means how many values you want to make pair like 2/3/4.
 # Preserved value will return the existing kew as well.
+```
+
+<a name="array-flip"></a>
+
+```php
+array_flip($arr)
+# Return a new array with exchanging/flip the value to key and key to value.
+```
+<a name="array-sum"></a>
+
+```php
+array_sum($arr)
+# Return a sum of all values of existing array.
+# It works only with integer or float values.
+```
+<a name="array-product"></a>
+
+```php
+array_product($arr)
+# Return a result of multiplication of all values  of existing array.like(30*20*40*4.5)
+# It works only with integer or float values.
+```
+
+<a name="array-rand"></a>
+
+```php
+array_rand($arr, length - 1/2/3)
+# Return random key/index number form existing array.
+# 2nd Parameter(optional) Length is for how many value you want to pick.
+```
+
+<a name="array-shuffle"></a>
+
+```php
+shuffle($arr)
+# Shuffle the values Randomly and remove the key.
+# It doesn't return a new array. Change the existing array.
+```
+<a name="array-fill"></a>
+
+```php
+array_fill(index no, length, value)
+# Return a new array with a fixed value to all index.
+# 1st parameter from where index number will start
+# 2nd parameter how many index to be filled. array length.
+```
+
+<a name="array-walk"></a>
+
+```php
+array_walk($arr, 'function', 'function-parameter');
+# Run a function for each value.
+# The function will get automatically 2 parameter
+# 1st one is value & 2nd one is key.
+# 3rd parameter(optional) will be your defined parameter.
+
+array_walk_recursive($arr, 'function', 'function-parameter');
+# Same as array_walk(). 
+# Difference is this will work with multidimensional associative array.
+```
+
+<a name="array-map"></a>
+
+```php
+
+array_map('function', $arr, $arr2, $arr3);
+# Run a function for each value and return a new array.
+```
+<a name="array-map"></a>
+
+```php
+
+array_reduce('function', $arr);
+# Run a function for each value and return a string.
 ```
 
