@@ -481,7 +481,7 @@ $a = 10;
 $b = 20; 
 $c = 30;
 
-$arr = extract('a','b','c');
+$arr = compact('a','b','c');
 Return $arr = ['a' => 10, 'b' => 20, 'c' => 30] 
 # Convert some variables to a associative array.
 ```
