@@ -11,6 +11,7 @@
 * [Array Key][7]
 * [Array Match/Intersect][8]
 * [Array Difference][9]
+* [Array Sort][10]
 
 [1]: <#array-count> "1. sizeof()  2. count()   3.array_count_values()"
 
@@ -29,6 +30,8 @@
 [8]: <#array-intersect> "1. array_intersect()  2. array_uintersect()  3. array_intersect_key()  4. array_intersect_ukey()  5. array_intersect_assoc()  6. array_intersect_uassoc()  7. array_uintersect_assoc()  8. array_uintersect_uassoc();"
 
 [9]: <#array-diff> "1. array_diff()  2. array_udiff()  3. array_diff_key()  4. array_diff_ukey()  5. array_diff_assoc()  6. array_diff_uassoc()  7. array_udiff_assoc()  8. array_udiff_uassoc()"
+
+[10]: <#array-sort> " 1. sort()  2. rsort()  3. arsort()  4. asort()  5. krsort()  6. ksort()  7. natcasesort()  8. natsort()  9. array_multisort()  10. array_reverse(), 11. usort(), 12. uasort(), 13. uksort()"
 
 ## Other Array Methods
 
@@ -310,7 +313,76 @@ array_udiff_uassoc($arr, $arr2, 'keyCompareFunction', 'valueCompareFunction');
 2 user defined individual key & value function among
 arrays and return a new array with unmatched keys & values. */
 ```
+<a name="array-sort"></a>
+## Array Sort
 
+```php
+1. sort()
+2. rsort()
+3. arsort()
+4. asort()
+5. krsort()
+6. ksort()
+7. natcasesort()
+8. natsort()
+9. array_multisort()
+10. array_reverse()
+11. uasort()
+12. uksort()
+13. usort()
+
+sort($arr)
+# Sort the values by ascending order in existing array.
+# Work better with index array.
+
+rsort($arr)
+# Sort the values by descending order in existing array.
+# Work better with index array.
+
+asort($arr)
+# Sort the values by ascending order in existing array.
+# Work better with associative array.
+
+arsort($arr)
+# Sort the values by descending order in existing array.
+# Work better with associative array.
+
+ksort($arr)
+# Sort the keys by ascending order in existing array.
+
+
+krsort($arr)
+# Sort the keys by descending order in existing array.
+
+natsort()
+# Natural order sorting by ascending order.
+EG:
+var arr = ['Img30.png', 'img49.png', 'img2.png','img5.png','img20.png']natsort($arr);
+Return $arr = ['Img30.png','img2.png','img5.png','img20.png','img49.png'] 
+
+natcasesort($arr)
+# Same as natsort()
+# Natural order sorting by ascending order with case sensitive.
+# Lowercase first then uppercase.
+
+array_multisort($arr,$arr2);
+# Sort multiple array at a time.
+# Both array length should be same. Otherwise it will return an error.
+
+array_reverse($arr)
+# Return a new array with reversing the values first to last and last to first.
+
+uasort($arr,'function')
+# Sort the values by ascending order in existing array by a user defined function.
+
+uksort($arr,'function')
+# Sort the keys by ascending order in existing array by a user defined function.
+
+usort($arr,'function')
+# Sort the array by ascending order by a user defined function.
+
+
+```
 
 
 

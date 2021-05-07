@@ -16,11 +16,6 @@
 <span>PHP<hr/></span>
 <?php
 
-$arr = array('one' => 'one', 'two' => 'two', 'three' => 'three');
-
-echo "<pre>";
-print_r(array_key_last($arr));
-echo "</pre>";
 
 
 ?>
