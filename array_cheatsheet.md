@@ -454,20 +454,23 @@ array_reduce('function', $arr);
 <a name="list"></a>
 
 ```php
+list()
+# Return values of existing array and assign to individual variables.
+# Only work with index array or associative array with numeric key
+
 $arr = [2,3,4]
 list($a, $b, $c) = $arr;
 Return $a = 2; $b = 3; $c = 4
-
-# Return values of existing array and assign to individual variables.
-# Only work with index array or associative array with numeric key
 ```
 <a name="extract"></a>
 
 ```php
+extract()
+# Convert every key to variable and assign value as value
+
 $arr = ['a' => 10, 'b' => 20, 'c' => 30]
 extract($arr)
 return $a = 10, $b = 20, $c = 30;
-# Convert every key to variable and assign value as value
 
 extract($arr, EXRT_OVERWRITE) -> overwrite global variable.
 extract($arr, EXRT_SKIP) -> skip key name as variable
@@ -477,25 +480,30 @@ extract($arr, EXRT_PREFIX_ALL, 'prefix') -> add a prefix to all key
 <a name="compact"></a>
 
 ```php
+compact()
+# Convert some variables to a associative array.
+
 $a = 10;
 $b = 20; 
 $c = 30;
 
 $arr = compact('a','b','c');
 Return $arr = ['a' => 10, 'b' => 20, 'c' => 30] 
-# Convert some variables to a associative array.
 ```
 <a name="range"></a>
 
 ```php
-
+range()
+# Create an array containing a range of elements from beginning to ending number or letter 
 $arr = range(0,5);
 return $arr = ['0' => 0, '1' => 1, '2' => 2, '3' => 3, '4' => 4, '5' => 5];
 
+$arr = range(0,100,10);
+return $arr = ['0' => 0, '1' => 11, '2' => 21, '3' => 31, '4' => 41, '5' => 51, '6' => 61, '7' => 71, '8' => 81, '9' => 91,];
+# 3rd parameter is step to skip like skip every 10 step.
+
 $arr = range('a','e')
 return $arr = [ '0' => A, '1' => B, '2' => C, '3' => D, '4' => E ]
-
-# Create an array containing a range of elements from beginning to ending number or letter 
 ```
 
 
