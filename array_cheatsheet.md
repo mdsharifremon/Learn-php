@@ -411,7 +411,7 @@ array_walk_recursive($arr, 'function', 'function-parameter');
 array_map('function', $arr, $arr2, $arr3);
 # Run a function for each value and return a new array.
 ```
-<a name="array-map"></a>
+<a name="array-reduce"></a>
 
 ```php
 
