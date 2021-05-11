@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="favicon1.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <style>
+    
+    </style>
     <title>PHP</title>
 </head>
 <body>
@@ -15,6 +18,19 @@
 <div class="php">
 <span>PHP<hr/></span>
 <?php
+
+$a = "hello! how are you";
+$b = ['hello', 'how', 'are', 'you'];
+
+
+
+
+
+echo "<pre>";
+
+echo "</pre>";
+
+
 
 
 
