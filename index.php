@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="favicon1.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <style>
-    
+
     </style>
     <title>PHP</title>
 </head>
@@ -22,6 +22,14 @@
 $a = "hello! how are you";
 $b = ['hello', 'how', 'are', 'you'];
 
+if($a <= $b){
+
+  for(){
+    if(){
+
+    }
+  }
+}
 
 
 
