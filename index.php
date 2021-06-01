@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,44 +9,24 @@
     <link rel="shortcut icon" href="favicon1.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <style>
+      input{
+        padding:5px 10px;
+        border:none;
+        outline:none;
+      }
 
     </style>
     <title>PHP</title>
 </head>
 <body>
-<h1 class="heading">Learning PHP & JavaScript</h1>
+<h1 class="heading">Learning PHP</h1>
 <div class="box">
 
-<div class="php">
-<span>PHP<hr/></span>
-<?php
-
-$a = "hello! how are you";
-$b = ['hello', 'how', 'are', 'you'];
-
-if($a <= $b){
-
-  for(){
-    if(){
-
-    }
-  }
-}
+<?php  
 
 
-
-
-echo "<pre>";
-
-echo "</pre>";
-
-
-
-
-
-?>
-</div>
-<div class="js"><span>Javascript<hr/></span><div id="output"></div></div>
+ 
+ ?>  
 </div>
 <script src="learn.js"></script>
 </body>
