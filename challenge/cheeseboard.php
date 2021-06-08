@@ -48,6 +48,7 @@
             background:#000;
             color:#fff;
         }
+        /** Mainly with Css */
         /* tr:nth-child(even) > td:nth-child(even){
             background:#000;
         }
@@ -79,7 +80,8 @@
                     for($i = 1; $i <= $data; $i++){
                             echo "<tr>";
                                 for($col = 1; $col <= $data; $col++){
-                                   if(($col + $i) % 2 == 0){
+                                    //echo "<td></td>"; simple way mainly with css.
+                                   if(($col + $i) % 2 == 0){ // Mainly with php
                                        echo "<td class='bg-dark'></td>";
                                    }else{
                                        echo "<td></td>";
