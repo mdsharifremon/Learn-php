@@ -69,8 +69,8 @@ require_once 'config.php';
         margin-left: 30px;
     }
     .login-btn{padding:10px 30px;}
-    button.btn{width: 100%; display:block; margin: 12px auto; text-align:center;}
-    button.btn .fa{margin-right:10px;} 
+    a.btn{width: 100%; display:block; margin: 12px auto; text-align:center;}
+    a.btn .fa{margin-right:10px;} 
     .have-ac{text-align:center; padding-bottom:30px;}
     .have-ac a{text-decoration:underline;}
     </style>
@@ -80,8 +80,12 @@ require_once 'config.php';
         <div class="form">
             <h2>Create Account</h2>
             <div class="login-btn">
-                <button class="btn btn-primary" type="button" name="google"><i class="fa fa-google"></i>Login Via Gmail</button>
-                <button class="btn btn-danger" type="button" name="facebook"><i class="fa fa-facebook"></i>Login Via Facebook</button>
+                <a class="btn btn-primary" href="http://localhost/googleapi/index.php" type="button" name="google">
+                   <i class="fa fa-google"></i>Login Via Gmail
+                </a>
+                <a class="btn btn-danger" type="button" name="facebook">
+                   <i class="fa fa-facebook"></i>Login Via Facebook
+                </a>
             </div>
 <?php
 

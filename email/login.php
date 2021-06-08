@@ -15,15 +15,25 @@ $err_email = $err_pass = '';
             else:
                  $password = $_POST['password'];
             endif;
-            $sql = "SELECT pass, status FROM activation WHERE username = '{$username}' OR email = '{$username}'";
+            $sql = "SELECT username, email, pass, status FROM activation WHERE username = '{$username}' OR email = '{$username}'";
             $result = mysqli_query($conn, $sql) or die('Insert failed: ' . mysqli_error($conn));
             if(mysqli_num_rows($result) > 0):
                 $row = mysqli_fetch_assoc($result);
                 $status = $row['status'];
+                $email = $row['email'];
+                $uname = $row['username'];
                 $pass = $row['pass'];
                 if($status == 'active'){
                     if(password_verify($password, $pass)){
-                    header('location:home.php');
+                    $_SESSION['name'] = $uname;
+                        if(isset($_POST['remember'])){
+                            $time = time() + 15552000;
+                            setcookie('email_cookie', $email, $time);
+                            setcookie('pass_cookie', $password, $time);
+                            header('location:home.php');
+                        }else{
+                            header('location:home.php');
+                        };
                     }else{
                         $err_pass = 'Password is incorrect';
                     };
@@ -40,7 +50,7 @@ $err_email = $err_pass = '';
     endif;
 };
 ?>
-    
+
 <html lang="en">
 
 <head>
@@ -118,16 +128,8 @@ $err_email = $err_pass = '';
         padding: 10px 30px;
     }
 
-    button.btn {
-        width: 100%;
-        display: block;
-        margin: 12px auto;
-        text-align: center;
-    }
-
-    button.btn .fa {
-        margin-right: 10px;
-    }
+a.btn{width: 100%; display:block; margin: 12px auto; text-align:center;}
+    a.btn .fa{margin-right:10px;} 
 
     .have-ac {
         padding: 0 30px;
@@ -143,10 +145,10 @@ $err_email = $err_pass = '';
 
     .login-btn p.status {
         border-radius: .25rem;
-        background-color:var(--success);
-        color:#fff;
-        padding:5px 20px;
-        text-align:center;
+        background-color: var(--success);
+        color: #fff;
+        padding: 5px 20px;
+        text-align: center;
     }
     </style>
 </head>
@@ -156,12 +158,12 @@ $err_email = $err_pass = '';
         <div class="form">
             <h2>Log In Form</h2>
             <div class="login-btn">
-                <button class="btn btn-primary" type="button" name="google">
-                        <i class="fa fa-google"></i>Login Via Gmail
-                </button>
-                <button class="btn btn-danger" type="button" name="facebook">
-                      <i class="fa fa-facebook"></i>Login Via Facebook
-                </button>
+                <a class="btn btn-primary" href="http://localhost/googleapi/index.php" type="button" name="google">
+                   <i class="fa fa-google"></i>Login Via Gmail
+                </a>
+                <a class="btn btn-danger" type="button" name="facebook">
+                   <i class="fa fa-facebook"></i>Login Via Facebook
+                </a>
 
                 <?php 
                     if(isset($_SESSION['msg'])){ 
@@ -180,7 +182,8 @@ $err_email = $err_pass = '';
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-user"></i></span>
                     </div>
-                    <input type="text" class="form-control" placeholder="Username Or Email" name="username">
+                    <input type="text" class="form-control" placeholder="Username Or Email" name="username" value="<?php
+                    if(isset($_COOKIE['email_cookie'])){echo $_COOKIE['email_cookie'];}?>">
                     <?php if(!empty($err_email)): ?>
                     <span class="invalid"><?php echo $err_email ?></span>
                     <?php endif; ?>
@@ -189,12 +192,18 @@ $err_email = $err_pass = '';
                 <!---- Password ---->
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa fa-unlock-alt"></i></span>
+                        <span class="input-group-text"><i class="fa fa-lock"></i></span>
                     </div>
-                    <input type="password" class="form-control" placeholder="Password" name="password">
+                    <input type="password" class="form-control" placeholder="Password" name="password" value="<?php
+                    if(isset($_COOKIE['pass_cookie'])){echo $_COOKIE['pass_cookie'];}?>">
                     <?php if(!empty($err_pass)): ?>
-                        <span class="invalid"><?php echo $err_pass; ?></span>
+                    <span class="invalid"><?php echo $err_pass; ?></span>
                     <?php endif; ?>
+                </div>
+                <div class="form-check mb-2 mr-sm-2">
+                    <label class="form-check-label">
+                        <input class="form-check-input" name="remember" type="checkbox"> Remember me
+                    </label>
                 </div>
 
                 <!---- Submit Button ---->
@@ -202,7 +211,7 @@ $err_email = $err_pass = '';
             </form>
             <div class="have-ac">
                 <a href="email.php" class="primary"> Create An Account. </a>
-                <a href="#" class="primary"> Forgot Password </a>
+                <a href="recover.php" class="primary"> Forgot Password </a>
             </div>
         </div>
     </div>
