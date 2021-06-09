@@ -135,51 +135,49 @@
                     </table>
                 </td>
             </tr>
-
         </table>
-
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-    $(document).ready(() => {
+    $(document).ready(()=> {
+
         function loadTable(){
                 $.ajax({
-                    url: 'ajaxload.php',
+                    url : 'ajaxload.php',
                     type: 'POST',
                     success: (data) => {
                         $('#table-data').html(data);
                     }
-                });  
+                });
         };
         loadTable();
-       
-        $('#save').on('click', (e) =>{
+
+        $('#save').on('click', (e) => {
             e.preventDefault();
             let fname = $('#fname').val();
             let lname = $('#lname').val();
             let age = $('#age').val();
-            console.log(fname, lname, age);
+            //console.log(fname, lname, age);
 
             $.ajax({
                     url : 'ajax-insert.php',
                     type : 'POST',
                     data : {
-                        first_name: fname,
-                        last_name: lname,
-                        age: age
-                    },
-                    success: (data)=>{
+                            first_name : fname,
+                            last_name : lname,
+                            age : age
+                          },
+                    success: (data) => {
                         if(data == 1){
                             loadTable();
                         }else{
-                                alert("Can't save record");
-                        }
-                       
+                            alert('Insert Failed');
+                        };
                     },
             });
         });
-
     });
+
     </script>
 </body>
 
