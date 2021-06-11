@@ -1,9 +1,7 @@
 <?php 
+$search = $_POST['search'];
 $conn = mysqli_connect('localhost', 'root', '', 'cms_form') or die(mysqli_connect_error());
-$page = (isset($_POST['page']))? $_POST['page'] : 1;
-$limit = 5;
-$offset = ($page - 1) * $limit;
-$sql = "SELECT * FROM user ORDER BY id DESC LIMIT {$offset}, {$limit}";
+$sql = "SELECT * FROM user WHERE fname LIKE '%{$search}%' OR lname LIKE '%{$search}%'";
 $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 $output = '';
 if(mysqli_num_rows($result) > 0){
@@ -31,22 +29,9 @@ if(mysqli_num_rows($result) > 0){
     };
 
     $output .= '</table>';
-    $output .= "<div id='pagination'>";
-
-    $sql2 = "SELECT * FROM user";
-    $result2 = mysqli_query($conn, $sql2) or die(mysqli_error($conn));
-    $total_records = mysqli_num_rows($result2);
-    $total_page = ceil($total_records / $limit);
-
-        for($i = 1; $i <= $total_page; $i++){
-            $active = ($page == $i)? "active" : '';;
-            $output .= "<a href='#' data-tid='$i' class='$active'>$i</a>";   
-        };   
-
-    $output .= "</div>";
     mysqli_close($conn);
     echo $output;
 
 }else{
-    echo "<h3>No Data Found</h3>";
+    echo "<h3>No Search Found</h3>";
 }
