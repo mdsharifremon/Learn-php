@@ -2,7 +2,7 @@
 
 require_once 'config.php';
 $page = (isset($_POST['page']))? $_POST['page'] : 1;
-$limit = 5;
+$limit = 10;
 $offset = ($page - 1) * $limit;
 $sql = "SELECT * FROM user LIMIT {$offset}, {$limit}";
 $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));

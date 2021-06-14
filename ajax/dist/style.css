@@ -181,6 +181,10 @@ tbody tr:last-child{
     background:#03926c;
     color:#d9dee4;
 }
+.form p#loading{
+    background-color: #2e86de;
+    color:#d9dee4;
+}
 #records{
     padding:20px;
 }
@@ -304,4 +308,22 @@ button#delete{
 button:disabled{
     background:#222f3e !important;
 }
+.gender-box {
+    display:flex;
+    padding:10px 15px;
+}
+.gender-box label:first-child{
+    width: 25%;
+}
+.gender-box input{
+    min-width:auto;
+    max-width:30px;
+    margin-left:20px;
+}
+
+.post{
+    padding:20px 0;
+    border-bottom:1px solid #dcfffc;
+}
+
 
