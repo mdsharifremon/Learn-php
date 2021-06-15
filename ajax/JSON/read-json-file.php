@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,7 +27,22 @@
                         </tr>    
                      </thead>
                      <tbody id="tableData">
+                     <?php
+                     $file = file_get_contents('json-files/user.json');
+                     $data = json_decode($file,true);
+
+                     foreach($data as list('id' => $id, 'fname' => $fname, 'lname' => $lname, 'age' => $age)){
+                            echo "<tr>
+                                    <td>$id</td>
+                                    <td>$fname</td>
+                                    <td>$lname</td>
+                                    <td>$age</td>
+                             </tr>";
+
+                     };
                      
+                     
+                     ?>
                      </tbody>
                 </table>
                 <p id="error"></p>
@@ -36,37 +50,4 @@
         </div>
     </div>
 </body>
-<script src="../dist/jQuery.js"></script>
-<script>
-
-jQuery(document).ready(function($){
-
-    function loadData (){
-
-        $.ajax({
-                url : 'json-parse.php',
-                type : 'POST',
-                dataType : 'JSON',
-                success : function(data){
-                  if(data){
-                        $.each(data, (key, value)=>{
-                            $('#tableData').append(`<tr>
-                                                        <td>${value.id}</td>
-                                                        <td>${value.fname}</td>
-                                                        <td>${value.lname}</td>
-                                                        <td>${value.age}</td>
-                                                  </tr>`);
-                        });
-                  }else{
-                        $('#error').html('No data Found').slideDown(500);
-                  };
-                    
-                },
-        });
-    };
-    loadData();
-
-});
-
-</script>
 </html>
