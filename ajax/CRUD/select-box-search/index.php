@@ -37,7 +37,6 @@
                             <th>Last Name</th>
                             <th>Age</th>
                             <th>City</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
 
@@ -48,7 +47,36 @@
             </div>
         </div>
     </div>
-    <script src="../dist/jQuery.js"></script>
+    <script src="../../dist/jQuery.js"></script>
+    <script>
+jQuery(document).ready(($)=>{
+
+    function loadData(type,id){
+        $.ajax({
+            url  : 'load-data.php',
+            type : 'POST',
+            data : {type: type, id : id},
+            success : function(data){
+                    if(type == 'user'){
+                        $('#table-data').html('');
+                        $('#table-data').append(data);
+                    }else{
+                        $('#city').append(data);
+                    }
+            }
+        });
+    };
+    loadData();
+
+    $('#city').on('change', function(){
+        let id = $(this).val();
+        loadData('user',id);
+    });
+
+});
+
+
+    </script>
 </body>
 
 </html>
