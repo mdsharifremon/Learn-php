@@ -427,6 +427,29 @@ input[type='checkbox']{
 #error{
     background:#ee5253;
 }
+#preview{
+    display: none;
+}
+.info{
+    display:block;
+    padding:0 15px;
+    margin-bottom:10px;
+    font-size:14px;
+    color:#e2510ebb;
+
+}
+#img-preview{
+    max-width:500px;
+}
+#img-preview img{
+    max-width: 100%;
+    height:auto;
+}
+#img-preview #delete{
+margin:20px 0;
+padding:15px 30px;
+}
+
 
 
 
