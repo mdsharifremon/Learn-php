@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../dist/style.css">
+    <link rel="stylesheet" type="text/css" href="../../dist/style.css">
     <title>PHP & AJAX</title>
 </head>
 
@@ -47,7 +47,7 @@
             </div>
         </div>
     </div>
-    <script src="../dist/jQuery.js"></script>
+    <script src="../../dist/jQuery.js"></script>
     <script>
     jQuery(document).ready(function($){
 

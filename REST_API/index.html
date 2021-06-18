@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../ajax/dist/style.css">
+    <title>PHP & AJAX</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content-box">
+            <div class="header">
+                <h1>PHP CRUD WITH AJAX</h1>
+                <div class="search">
+                    <input type="text" name="search" placeholder="search" id="search">
+                </div>
+            </div>
+
+            <div class="insert">
+                <h2 class="txt-center">Insert User</h2>
+                <div class="form">
+                    <form id="insert-form">
+                        <input type="text" name="fname" id="fname" placeholder="First Name">
+                        <input type="text" name="lname" id="lname" placeholder="Last Name">
+                        <input type="number" name="age" id="age" placeholder="Age" autocomplete="off">
+                        <input type="submit" name="save" id="save" value="Submit">
+                    </form>
+                    <p id="error">Error</p>
+                    <p id="success">Success</p>
+                </div>
+            </div>
+
+            <div id="records">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User Id</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Age</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id='table-data'>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="modal">
+                <div id="modal-form">
+                    <h2 class="txt-center">Update User</h2>
+                    <div class="form" id="update-form">
+                        <form id="save-update-form">
+                            <input type="hidden" name="id" id="uid" placeholder="First Name" value=''>
+                            <input type="text" name="fname" id="ufname" placeholder="First Name" value=''>
+                            <input type="text" name="lname" id="ulname" placeholder="Last Name" value=''>
+                            <input type="number" name="age" id="uage" placeholder="Age" autocomplete="off" value=''>
+                            <input type="submit" name="save" id="usave" value="Submit">
+                        </form>
+                        <div class="response-msg">
+                            <p id="uerror"></p>
+                            <p id="usuccess"></p>
+                        </div>
+                    </div>
+
+                    <div id='close'>X</div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <script src="../ajax/dist/jQuery.js"></script>
+    <script>
+
+        jQuery(document).ready(($) => {
+
+            function loadTable() {
+                $('#table-data').html('');
+                $.ajax({
+                    url: 'http://localhost/learning/PHP_learning/REST_API/api-fetch-all.php',
+                    type: 'GET',
+                    dataType: 'JSON',
+                    success: (data) => {
+                        if (data.status == false) {
+                            $('#table-data').html(`<tr><td colspan='5' class='alert danger'>${data.message}</td></tr>`);
+                        } else {
+                            $.each(data, (key, val) => {
+                                $('#table-data').append(`<tr>
+                                <td>${val.id}</td>
+                                <td>${val.fname}</td>
+                                <td>${val.lname}</td>
+                                <td>${val.age}</td>
+                                <td>
+                                    <button id='edit' data-id='${val.id}'>Edit</button>
+                                    <button id='delete' data-id='${val.id}'>Delete</button>
+                                </td>
+                            </tr>`);
+                            });
+                        };
+                    },
+                });
+            };
+            loadTable();
+
+            // Convert Form Data to JSON data
+            function jsonData(targetForm){
+                let arrData = targetForm.serializeArray();
+                let objData = {};
+                for (let i = 0; i < arrData.length; i++) {
+                    if(arrData[i].value == ''){
+                        return false;
+                    }
+                    objData[arrData[i].name] = arrData[i].value;
+                };
+                let data = JSON.stringify(objData);
+                return data;
+              };
+
+
+            // Response Message 
+            function message(status,msg){
+
+                if(status == true){
+                    loadTable();
+                    alert(msg);
+                    
+                }else{
+                    alert(msg);
+                };
+
+            }
+
+            // Insert Data
+            $(document).on('click', '#save', (e) => {
+                e.preventDefault();
+                let targetForm = $('#insert-form');
+
+                // Get Value From Insert Form
+                let data = jsonData(targetForm);
+                if(data == false){
+                    alert('All fields are required');
+                };
+
+                $.ajax({
+                    url: 'http://localhost/learning/PHP_learning/REST_API/api-insert.php',
+                    type: 'POST',
+                    dataType: 'JSON',
+                    data: data,
+                    success: (data) => {
+                        if (data.status == false) {
+                            $('#error').html(data.message).slideDown(500);
+                            setTimeout(() => {
+                                $('#error').slideUp();
+                            }, 5000);
+                        } else {
+                            loadTable();
+                            $('#success').html(data.message).slideDown(500);
+                            setTimeout(() => {
+                                $('#success').slideUp();
+                            }, 2000);
+                            targetForm.trigger('reset');
+
+                        };
+                    },
+                });
+
+            });
+
+            // Edit Data
+            $(document).on('click', '#edit', function () {
+                //e.preventDefault();
+                $('#modal').stop(true, true).fadeIn(500);// Open modal box
+                let getId = $(this).data('id');
+                let userId = { "id": getId };
+                let id = JSON.stringify(userId);
+                $.ajax({
+                    url: 'http://localhost/learning/PHP_learning/REST_API/api-fetch-single.php',
+                    type: 'POST',
+                    dataType: 'JSON',
+                    data: id,
+                    success: (data) => {
+                        if (data.status == false) {
+                            $('#uerror').html(data.message);
+                        } else {
+                            $('#uid').val(data[0].id);
+                            $('#ufname').val(data[0].fname);
+                            $('#ulname').val(data[0].lname);
+                            $('#uage').val(data[0].age);
+                        };
+                    },
+                });
+            });
+
+            // Save Updated Data
+            $(document).on('click', '#usave', (e) => {
+                e.preventDefault();
+                let targetForm = $('#save-update-form');
+
+
+                // Get values from update form
+                let data = jsonData(targetForm);
+
+                // let id = $('#uid').val();
+                // let fname = $('#ufname').val();
+                // let lname = $('#ulname').val();
+                // let age = $('#uage').val();
+                // let objData = {"id" : id, "fname": fname, "lname": lname, "age": age};
+                // let data = JSON.stringify(objData);
+
+                $.ajax({
+                    url: 'http://localhost/learning/PHP_learning/REST_API/api-update.php',
+                    type: 'POST',
+                    dataType: 'JSON',
+                    data: data,
+                    success: (data) => {
+                        if (data.status == false) {
+                            $('#uerror').html(data.message).slideDown(500);
+                            setTimeout(() =>{
+                                $('#uerror').slideUp();
+                            }, 5000);
+                        } else {
+                            loadTable();
+                            $('#usuccess').html(data.message).stop(true,true).slideDown(500);
+
+                            setTimeout(() => {
+                                $('#usuccess').slideUp(); 
+                                $('#modal').stop(true, true).fadeOut(500);
+                            },5000);
+                             
+                        };
+                    },
+                });
+            });
+
+            // Close Modal Box
+            $('#close').on('click', () => {
+                $('#modal').stop(true, true).fadeOut(500);
+            });
+
+            // Delete Data From Database
+            $(document).on('click', '#delete', function(){
+                if(confirm("Do you really delete this data?")){
+
+                    let getId = $(this).data('id');
+                    let obj = {id : getId};
+                    let id = JSON.stringify(obj);
+
+                    $.ajax({
+                            url : 'http://localhost/learning/PHP_learning/REST_API/api-delete.php',
+                            type : 'POST',
+                            dataType : 'JSON',
+                            data : id,
+                            success :(data)=>{
+                                if(data.status == true){
+                                        $(this).closest('tr').stop(true, true).fadeOut(500);
+                                    }
+                            }      
+                    });
+                };
+            });
+
+            $('#search').on('keyup', function(){
+                let getSearch = $(this).val();
+                // let obj = {search : getSearch};
+                // let search = JSON.stringify(obj);
+                
+                $.ajax({
+                    url : `http://localhost/learning/PHP_learning/REST_API/api-search.php?search=${getSearch}`,
+                    type : 'POST',
+                    //dataType : 'JSON',
+                    success: (data) => {
+                        if (data.status == false) {
+                            $('#table-data').html(`<tr><td colspan='5' class='alert danger'>${data.message}</td></tr>`);
+                        } else {
+                            $('#table-data').html('');
+                            $.each(data, (key, val) => {
+                                $('#table-data').append(`<tr>
+                                    <td>${val.id}</td>
+                                    <td>${val.fname}</td>
+                                    <td>${val.lname}</td>
+                                    <td>${val.age}</td>
+                                    <td>
+                                        <button id='edit' data-id='${val.id}'>Edit</button>
+                                        <button id='delete' data-id='${val.id}'>Delete</button>
+                                    </td>
+                                </tr>`);
+                            });
+                        };
+                    },
+                })
+                
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="http://localhost/learning/PHP_learning/ajax/dist/style.css">
+    <title>PHP & AJAX</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="content-box">
+            <div class="header api">
+                <h1 class="txt-center">CORONA VIRUS API REPORT</h1>
+            </div>
+            <div id="records">
+                <table id='global-table'>
+                   <tr class="bg-green">
+                        <td colspan='2' style="text-align:center;">
+                            <h2>Global Data</h3>
+                        </td>
+                    </tr>
+                    <tbody id='global'>
+
+                    </tbody>
+                </table>
+
+                <table id='country-table' style='margin-top:50px;'>
+
+                    <thead>
+                        <tr class="bg-green">
+                            <td colspan='8'>
+                                <h2>Country Wise Data</h3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Sl</th>
+                            <th>Country</th>
+                            <th>New Confirmed</th>
+                            <th>Total Confirmed</th>
+                            <th>New Deaths</th>
+                            <th>Total Deaths</th>
+                            <th>New Recovered</th>
+                            <th>Total Recovered</th>
+                        <tr>
+                    </thead>
+                    <tbody id='country'></tbody>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+    <script src="http://localhost/learning/PHP_learning/ajax/dist/jQuery.js"></script>
+    <script>
+
+        jQuery(document).ready(($) => {
+
+            $.ajax({
+                url: 'https://api.covid19api.com/summary',
+                type: 'GET',
+                dataType: 'JSON',
+                success: function (data) {
+                    let global = data.Global;
+
+                    $.each(global, (key, val) => {
+                        $('#global').append(`<tr>
+                                                  <td><b>${key}</b></td>
+                                                  <td>${val}</td>
+                                             </tr>`);
+                    });
+
+                    let country = data.Countries;
+                    let i = 0;
+                    $.each(country, (key, val) => {
+                        i++
+                        $('#country').append(`
+                         <tr>
+                                <td>${i}</td>
+                                <td width='300px'>${val.Country}</td>
+                                <td>${val.NewConfirmed}</td>
+                                <td>${val.TotalConfirmed}</td>
+                                <td class='yellow'>${val.NewDeaths}</td>
+                                <td class='crimson'>${val.TotalDeaths}</td>
+                                <td>${val.NewRecovered}</td>
+                                <td class='green'>${val.TotalRecovered}</td>
+                         <tr>`)
+                    });
+
+                    $('tr:empty').remove();
+                    $('#country-table thead tr:nth-child(3)').remove();
+
+                }
+            });
+    
+        });
+    </script>
+</body>
+
+</html>

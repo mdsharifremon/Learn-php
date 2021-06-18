@@ -145,7 +145,7 @@ tbody tr:last-child{
 }
 .form{
     padding:20px 0;
-    width:450px;
+    max-width:450px;
     margin-left:auto;
     margin-right:auto;
 }
@@ -177,7 +177,7 @@ tbody tr:last-child{
     background:#ee5253;
     color:#fddede;;
 }
-.form p#success{
+.form p#success, p#usuccess{
     background:#03926c;
     color:#d9dee4;
 }
@@ -325,5 +325,108 @@ button:disabled{
     padding:20px 0;
     border-bottom:1px solid #dcfffc;
 }
+
+.response-msg p{
+    display:none;
+    line-height:2.2;
+    border-radius:3px;
+    padding:0 15px;
+    width:100%;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    -ms-border-radius:3px;
+    -o-border-radius:3px;
+}
+
+.container-fluid{
+    max-width:1300px;
+    width:100%;
+    margin-left:auto;
+    margin-right:auto;
+    padding-left:10px;
+    padding-right:10px;
+}
+#country th{
+    padding:6px 0;
+}
+
+table#global-table td{
+    width:50%;
+    text-align:start;
+    padding-left:20px;
+}
+.bg-green{
+    background:#1dd1a1 !important;
+}
+.header.api{
+    justify-content: center;
+}
+.yellow{
+    color:#a200ff;
+}
+.crimson{
+    color:crimson;
+}
+.green{
+    color:green;
+}
+
+select{
+    display:block;
+    padding:10px 15px;
+    border-radius:3px;
+    outline:none;
+    border:1px solid #eee;
+    background:#e0e0e0;
+    margin:5px 0;
+    opacity: 0.9;
+    min-width:250px;
+    width:100%;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    -ms-border-radius:3px;
+    -o-border-radius:3px;
+}
+option{
+    min-height:2em;
+    padding:5px 0;
+    display:block;
+    width:100%;
+}
+#delete.check{
+    display:block;
+    margin-top:20px;
+    margin-left:20px;
+    padding:10px 30px;
+}
+input[type='checkbox']{
+    max-width:50px;
+    min-width:30px !important;
+}
+#records #checkbox-table{
+    background:#dee7e5;
+}
+#records #checkbox-table thead tr th{
+    background:#1dd1a1;
+}
+.check-response p{
+    display:none;
+    padding:6px 15px;
+    width:90%;
+    margin:8px auto;
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    -ms-border-radius:3px;
+    -o-border-radius:3px;
+}
+#success{
+    background:#03926c;
+    color:#fff;
+}
+#error{
+    background:#ee5253;
+}
+
 
 
