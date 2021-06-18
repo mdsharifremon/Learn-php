@@ -34,17 +34,17 @@ jQuery(document).ready(($)=>{
         let fname  = $('#fname').val();
         let lname  = $('#lname').val();
         let age  = $('#age').val();
-        console.log(fname,lname,age);
+        let city  = $('#city').val();
+        console.log(fname,lname,age,city);
         $.ajax({
             url : 'insert.php',
             type : 'POST',
-            data : {fname : fname, lname : lname, age : age},
+            data : {fname : fname, lname : lname, age : age, city: city},
             success : function(data){
-                if(data == 1){
+                if (data == 1) {
                      loadData();
-                }else{
-                    $('#error').slideDown(300);
-                    $('#error'). html('Insert a new user failed');
+                }else{      
+                    $('#error'). html(data).slideDown(300);
                 }
             },
 
@@ -63,7 +63,7 @@ jQuery(document).ready(($)=>{
                     type : 'POST',
                     data : {id : id},
                     success : (data)=>{
-                            if(data == 1){
+                        if (data == 1) {                             
                                 loadData();
                             }else{
                                 $('#error').slideDown(300);

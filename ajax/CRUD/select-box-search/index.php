@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../dist/style.css">
+    <link rel="stylesheet" type="text/css" href="../../dist/style.css">
     <title>PHP & AJAX</title>
 </head>
 
@@ -20,15 +20,11 @@
             </div>
 
             <div class="insert">
-                <h2 class="txt-center">Insert User</h2>
-                <div class="form">
-                    <input type="text" name="" id="fname" placeholder="First Name">
-                    <input type="text" name="" id="lname" placeholder="Last Name">
-                    <input type="number" name="" id="age" placeholder="Age" autocomplete="off">
-                    <input type="text" name="" id="city" placeholder="city" autocomplete="off">
-                    <input type="submit" name="" id="save" value="Submit">
-                    <p id="error">Error</p>
-                    <p id="success">Success</p>
+                <h2 class="txt-center">Search By City</h2>
+                <div class="form"> 
+                    <select id="city">
+                        <option disabled="disabled" selected>Select Your City</option>
+                    </select>
                 </div>
             </div>
 
@@ -50,22 +46,9 @@
                     </tbody>
                 </table>
             </div>
-
-            <div id="modal">
-                <div id="modal-form">
-                    <h2 class="txt-center">Update User</h2>
-                    <div class="form" id="update-form">
-                    </div>
-                    <p id="uerror"></p>
-                <div id='close'>X</div>
-                </div>
-            </div>
-
-
         </div>
     </div>
     <script src="../dist/jQuery.js"></script>
-    <script src="ajax.js"></script>
 </body>
 
 </html>
