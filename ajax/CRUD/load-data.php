@@ -15,6 +15,7 @@ if(mysqli_num_rows($result) > 0){
                         <td>$row[lname]</td>
                         <td>$row[age]</td>
                         <td>$row[city]</td>
+                        <td>$row[dob]</td>
                         <td width='220px'>
                             <button id='edit' data-id='$row[id]'>Edit</button>
                             <button id='delete' data-id='$row[id]'>Delete</button>
@@ -23,7 +24,7 @@ if(mysqli_num_rows($result) > 0){
     };
     // Pagination 
     $output .=  "<tr>
-                   <td colspan='6'>
+                   <td colspan='7'>
                       <div id='pagination'>";
 
 

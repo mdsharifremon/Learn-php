@@ -11,6 +11,8 @@ if(mysqli_num_rows($result) > 0){
                         <td>$row[fname]</td>
                         <td>$row[lname]</td>
                         <td>$row[age]</td>
+                        <td>$row[city]</td>
+                        <td>$row[dob]</td>
                         <td width='220px'>
                             <button id='edit' data-id='$row[id]'>Edit</button>
                             <button id='delete' data-id='$row[id]'>Delete</button>

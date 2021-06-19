@@ -14,6 +14,7 @@ if(mysqli_num_rows($result) > 0 ){
                     <input type='text' id='ulname'  value='$row[lname]' >
                     <input type='number' id='uage'  value='$row[age]'>
                     <input type='text' id='ucity'   value='$row[city]'>
+                    <input type='text' id='dataPicker'    value='$row[dob]'>
                     <input type='submit' id='usave' value='Update'>";
     }
     mysqli_close($conn);

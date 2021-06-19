@@ -11,7 +11,7 @@ body{
 }
 .container{
     display:flex;
-    max-width:900px;
+    max-width:1000px;
     margin-left:auto;
     margin-right:auto;
     padding:10px;
@@ -506,6 +506,38 @@ padding:15px 30px;
     -moz-border-radius:none;
     -ms-border-radius:none;
     -o-border-radius:none;
+}
+
+input#age{
+    border:0;
+    color:#03926c; 
+    font-size:16px;
+    background:#dcfffc;
+    font-weight:bold;
+}
+#slider-range{
+    max-width:40%;
+    margin-left:30px;
+}
+.ui-widget-header{
+    background:#8beed8;
+}
+
+/* #ui-datepicker-div{
+    width:450px;
+}*/
+
+.ui-datepicker .ui-datepicker-title {
+    margin: 0; 
+    padding:0 5px;
+    text-align:start;
+    display: flex;
+    justify-content: center;
+}
+.ui-datepicker-title select.ui-datepicker-month,
+.ui-datepicker-title select.ui-datepicker-year{
+    min-width:100px;
+    max-width:40%;
 }
 
 

@@ -1,4 +1,9 @@
-jQuery(document).ready(($)=>{
+jQuery(document).ready(($) => {
+    
+    $("#datePicker").datepicker({
+			changeMonth: true,
+			changeYear: true,
+	});
 
     /**
      * Load User Data Table
@@ -35,11 +40,12 @@ jQuery(document).ready(($)=>{
         let lname  = $('#lname').val();
         let age  = $('#age').val();
         let city  = $('#city').val();
-        console.log(fname,lname,age,city);
+        let dob  = $('#dob').val();
+        
         $.ajax({
             url : 'insert.php',
             type : 'POST',
-            data : {fname : fname, lname : lname, age : age, city: city},
+            data : {fname : fname, lname : lname, age : age, city: city,dob : dob},
             success : function(data){
                 if (data == 1) {
                      loadData();
@@ -106,18 +112,19 @@ jQuery(document).ready(($)=>{
             let lname = $('#ulname').val();
             let age   = $('#uage').val();
             let city   = $('#ucity').val();
+            let dob   = $('#udob').val();
 
             $.ajax({
                     url : 'save-update.php',
                     type : 'POST',
-                    data : {id : id, fname : fname, lname : lname, age : age, city : city},
+                    data : {id : id, fname : fname, lname : lname, age : age, city : city, dob : dob},
                     success : (data) => {
                                 if(data==1){
                                     loadData();
                                     $('#modal').stop(true,true).fadeOut(600);
                                 }else{
                                      $('#error').slideDown(300);
-                                     $('#error'). html('Update data failed');
+                                     $('#error'). html(data);
                                 };
                     },
 
