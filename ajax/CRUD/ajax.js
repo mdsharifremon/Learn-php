@@ -105,11 +105,12 @@ jQuery(document).ready(($)=>{
             let fname = $('#ufname').val();
             let lname = $('#ulname').val();
             let age   = $('#uage').val();
+            let city   = $('#ucity').val();
 
             $.ajax({
                     url : 'save-update.php',
                     type : 'POST',
-                    data : {id : id, fname : fname, lname : lname, age : age},
+                    data : {id : id, fname : fname, lname : lname, age : age, city : city},
                     success : (data) => {
                                 if(data==1){
                                     loadData();
