@@ -53,28 +53,36 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
     jQuery(document).ready(($) => {
-            let min,max;
+        var min,max;
         var dateFormat = "mm/dd/yy",
             from = $("#from")
             .datepicker({
-                defaultDate: "+1w",
+                //defaultDate: "+1w",
                 changeMonth: true,
-                numberOfMonths: 1
+                changeYear: true,
+                numberOfMonths: 1,
+                yearRange: "1980:2002"
             })
             .on("change", function() {
                 to.datepicker("option", "minDate", getDate(this));
-                min = getDate(this);
-                alert(min);
+                min = $(this).val();   
+                  if(min != '' || max != ''){
+                      alert(min,max);
+                      loadTable(min,max) }     
             }),
             to = $("#to").datepicker({
-                defaultDate: "+1w",
+                //defaultDate: "+1w",
                 changeMonth: true,
-                numberOfMonths: 1
+                changeYear: true,
+                numberOfMonths: 1,
+                yearRange: "1980:2002"
             })
             .on("change", function() {
                 from.datepicker("option", "maxDate", getDate(this));
-                max = getDate(this);
-                alert(max);
+                max = $(this).val();
+                if(min != '' || max != ''){
+                    alert(min, max);
+                    loadTable(min,max)}
             });
 
         function getDate(element) {
@@ -84,14 +92,9 @@
             } catch (error) {
                 date = null;
             }
-
             return date;
         }
-        if(min == '' && max == ''){
-            alert('Select a date range')
-        }else(
-            loadTable(min,max)   
-        )
+      
 
         function loadTable(min, max) {
             $.ajax({
@@ -107,7 +110,7 @@
                 }
             })
         };
-        loadTable();
+        loadTable(min,max);
     });
     </script>
 </body>
