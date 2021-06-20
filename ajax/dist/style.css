@@ -543,6 +543,44 @@ input#age{
 .data-range{
     padding:20px;
 }
+.upload-box{
+    width:60%;
+    margin:20px auto;
+}
+#my-awesome-dropzone{
+    border:none;
+}
+.box{
+    position:relative;
+    width:100%;
+}
+#file_upload{
+    width:100%;
+    z-index: 1;
+    min-height:120px;
+    background:transparent;
+    border:2px dashed #1dd1a1;
+    margin:20px auto;
+    cursor:pointer;
+    color:#fff;
+}
+.abc{
+    position:absolute;
+    color:turquoise;
+    z-index:0;
+    top: 50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    -webkit-transform:translate(-50%,-50%);
+    -moz-transform:translate(-50%,-50%);
+    -ms-transform:translate(-50%,-50%);
+    -o-transform:translate(-50%,-50%);
+}
+button#upload_btn{
+    background:turquoise;
+}
+
+
 
 
 
