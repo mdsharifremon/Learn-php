@@ -6,136 +6,170 @@
  * Abstraction : Make your data hide from others.
  * Encapsulation : Hold Things Together under a roof.
  * Inheritance : Extends or Inherit something from one class to another.
- * Polymorphism : One function can provide various result depending on its object and where it is called.
+ * Constructor : __construct () this function is called by itself automatically. It may have args.
+ * Destructor : __destruct () this function is used to destroy a object. It will run end of the script.
  */
 
- class Product{
-    static $price  = 50;
-    public $color = 'red'; 
-     function show(){
-        echo 'Color is : ' . $this->color . '<br>';
-     }
-   static function rand(){
-         return rand(0,100);
-     }
+// class Vehicle{
+//    public $color = 'red';
+//    public $weight = 200;
+
+//    function __construct($color, $weight){
+//       $this->color = $color;
+//       $this->weight = $weight;
+//    }
+
+//    function show(){
+//      return $this->color . ' ' . $this->weight . '<br>';
+//    }
+
+//    function __destruct(){
+//       echo 'I am destroying';
+//    }
+// }
+//  $car = new Vehicle(color:'yellow', weight: 500);
+//  $info = $car->show();
+// echo $info;
+// echo $car->show();
+
+/**
+ * Static : static keyword is used to define a property or a method static. A static method or property is 
+ * Associated with class not with the instance or object. It can not provide value of this. And Static  
+ * method or property can ber accessed from outside of a class without creating a instance or object.
+ * When a static method or property is called inside of its class  use self::
+ * When a static method or property is called from its derived class use parent::
+ * When a static method or property is need to be override use static::
+ */
+
+//  class Vehicle{
+//     public static $color = 'red';
+//     public $weight = 200;
+
+//    function __construct($color){
+//          self::$color = 'blue';
+//    }
+//    static function show(){
+//       echo 'This is a static method';
+//    }
+//  }
+
+//  echo Vehicle::$color;
+//  Vehicle::show();
+
+// class Counter{
+//    public static $number = 0;
+//    public $number1 = 0;
+
+//    function __construct(){
+//       self::$number++;
+//       $this->number1++;
+//    }
+// }
+
+// Example below shows us static number is increasing but normal number is not. so static is not associated with instance or object but class.
+// $num = new Counter();
+// echo 'Static : ' . Counter::$number . ' Normal: ' . $num->number1 . '<br>';
+// $num1 = new Counter();
+// echo 'Static : ' . Counter::$number . ' Normal: ' . $num1->number1 . PHP_EOL;
+
+// echo '<br><br>';
+// echo 'Trait <br>';
+/**
+ * Traits are a specific class or multiple classes that can be used in a class or multiple classes.
+ * Use the keyword trait to define a 'trait' class
+ * When you need to use it in a class write 'use' keyword to use the trait.
+ */
+
+// trait hello{ // Define a trait class
+//    public function sayHello(){
+//          echo 'Hello Everyone <br>';
+//    }
+// }
+// trait bye{ // Define another trait class
+//    public function sayBye(){
+//       echo 'Bye bye everyone <br>';
+//    }
+// }
+// class two {
+//    use hello,bye; // use the multiple trait in a class
+// }
+// $sayHello = new two();
+// $sayHello->sayHello();
+// $sayHello->sayBye();
+ 
+// echo '<br><br>';
+// echo 'Trait Overriding <br>';
+// /**
+//  * Trait Overriding Rule
+//  * Rule 1: Override a function base on priority. Objects it own function is priority 1.
+//  * Then trait will get priority. Then extended class or base class will get priority.
+//  * If two trait is used in a class and have a same function in both trait.
+//  * You have to specify which one you want to use.
+//  * If you want to use both of these function you have to change name of any one function.
+//  */
+
+//  trait Greet {
+//     function sayHi(){
+//        echo 'Hello! dear. I am from greet trait <br>';
+//     }
+//  }
+
+//  trait Farewell{
+//    private function sayHi(){
+//        echo 'Hello! dear. I am from farewell trait. <br>';
+//     }
+//  }
+
+//  class newClass{
+//     public function sayHi(){
+//        echo 'Hello! dear. I am from class .<br>';
+//     }
+//  }
+
+//  class Pactrical extends newClass{
+//     use Greet; // Trait greet has second priority
+//    //  function sayHi(){   // It has the first priority
+//    //     echo 'Hello! dear. I am from its own base'; 
+//    //  }
+//  }
+//  $test = new Pactrical();
+//  $test->sayHi();
+
+//  class NewTest{
+//     use Greet,Farewell{
+//       Greet::sayHi insteadOf Farewell; // Use the sayHi function from Greet trait.
+//       Farewell::sayHi as public newSayHi; // function name from Farewell trait  has been changed.
+//     }
+//  }
+
+//  $myTest = new NewTest();
+//  $myTest->sayHi();
+//  $myTest->newSayHi();
+
+/** 
+* Abstraction in php: one method must be abstract function
+* Can not create an object with abstract class
+* abstract methods must be redeclare
+*/
+
+
+/**
+ * Interface : 
+ */
+
+ interface Myinterface{
+
  }
- $book = new Product();
- $book->show();
- echo 'Random Number ' .  $book->rand() . '<br>';
- echo 'Product price ' . Product::$price . '<br>';
- $rand =  Product::rand();
-echo $rand . '<br><br>';
 
+ abstract class HiClass implements Myinterface{
 
-// Abstract Class 
-echo 'Abstract Class: ' . '<br>';
-abstract class Name{
-   abstract protected function prefix($name);
-}
-class Prefix extends Name{
+ }
 
-   public function prefix($name){
-      if($name == 'sharif'){
-         $prefix = 'Mr.';
-      }else if($name == 'sharifa'){
-         $prefix = 'Mrs.';
-      }else{
-         $prefix = '';
-      }
-      return "{$prefix} {$name}";
-   }
-}
+ class myClass extends HiClass{
 
-$sharif = new Prefix();
-$name = $sharif->prefix('sharifa');
-echo $name . '<br><br>';
+ }
 
-echo 'Constant : <br>'; 
-// Constants in OOP
-class Person {
-  const hello = 'Hello everyone';
-  function sayHi(){
-      echo self::hello;
-  }
-}
-$man = new Person();
-echo Person::hello;
-echo '<br>';
-$man->sayHi();
-echo '<br><br>';
-
-echo 'Interface : <br>';
-
-interface Call{
-   function name();
-}
-interface MakeSound{
-   function sound();
-}
-interface Eat{
-   function eat();
-}
-
-
-
-class Animal implements Call, MakeSound, Eat{
-   public $name;
-   public $sound;
-   public $eat;
-   function __construct($name = 'name', $sound = 'sound', $eat = 'rice'){
-      $this->name = $name;   
-      $this->sound = $sound;
-      $this->eat = $eat;
-   }
-
-   public function name(){
-         echo 'Name : ' . $this->name . ', ';
-   }
-   public function sound(){
-      echo 'Sound : ' . $this->sound . ', ';
-   }
-   public function eat(){
-      echo 'Eat : ' . $this->eat . '<br>';
-   }
-}
-$dog = new Animal('Dog','Bark','Bone'); 
-$cat = new Animal('Cat','Meow', 'Milk'); 
-$mouse = new Animal('Mouse','Squeak', 'Rice'); 
-
-
-$arr = array($dog, $cat, $mouse);
-for($i = 0; $i < count($arr); $i++){
-   $arr[$i]->name();
-   $arr[$i]->sound();
-   $arr[$i]->eat();
-}
-
-echo '<br><br>';
-
-echo 'Static: <br>';
-
-
-class Myclass {
-   public static $name = 'sharif';
-   public static $age = 25;
-
-   static function sayHi(){
-     echo static::$name . '<br>';
-     echo self::$age . '<br>';
-   }
-}
-
-class abc extends Myclass {
-   static $name = 'remon';
-   static $age = 27;
-
-}
-
-$one = new abc();
-$one->sayHi();
-
-
-
+ $NewClass = new myClass();
 
 
 
