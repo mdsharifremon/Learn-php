@@ -155,21 +155,71 @@
 
 /**
  * Interface : 
+*/
+
+
+//  interface Myinterface{
+//  }
+//  abstract class HiClass implements Myinterface{
+//  }
+//  class myClass extends HiClass{
+//  }
+//  $NewClass = new myClass();
+
+
+/**
+ * Type Hinting
  */
 
- interface Myinterface{
+//  class SayHi{
+//      public function Hi(){
+//          echo 'Hi Everyone <br>';
+//      }
+//  }
+//  class SayBye{
+//      public function Bye(){
+//          echo 'Bye bye everyone <br>';
+//      }
+//  }
 
+//  function show(SayHi $arg){
+//      $arg->Hi();
+//  }
+//  $one = new SayHi();
+// show($one);
+
+/**
+ * Namespace : Namespace is used to define class from which file i want to use.
+ */
+// require "test.php";
+// require 'one.php';
+
+// $myObj = new one\product();
+// $myObj1 = new test\product();
+
+
+/**
+ * Method Chaining
+ */
+
+ class Car{
+     function __construct(){}
+
+     function volvo(){
+         echo "This is volvo<br>";
+         return $this;
+     }
+     function marcedes(){
+         echo "this is marcedes <br>";
+         return $this;
+     }
+     function bmw(){
+         echo "This is bmw<br>";
+     }
  }
 
- abstract class HiClass implements Myinterface{
-
- }
-
- class myClass extends HiClass{
-
- }
-
- $NewClass = new myClass();
+ $car = new Car();
+ $car->volvo()->marcedes()->bmw();
 
 
 

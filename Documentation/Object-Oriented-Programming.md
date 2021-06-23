@@ -33,8 +33,21 @@ __Static__: static keyword is used to define a property or a method static. A st
     * Interface - interface & implements
     * Encapsulation
     * Polymorphism
-    * __construct
-    * __distract
+    * Magic Methods 
+        __construct
+        __destruct
+        __autoload
+        __get
+        __set
+        __isset
+        __unset
+        __call
+        __callStatic
+        __clone
+        __sleep
+        __wakeup
+        __toString
+        __invoke
     * Access Modifier - public, protected, private
     * Properties & Method Overriding - final. 
     * Constants - const
