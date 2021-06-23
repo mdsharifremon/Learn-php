@@ -202,24 +202,73 @@
  * Method Chaining
  */
 
- class Car{
-     function __construct(){}
+//  class Car{
+//      function __construct(){}
 
-     function volvo(){
-         echo "This is volvo<br>";
-         return $this;
-     }
-     function marcedes(){
-         echo "this is marcedes <br>";
-         return $this;
-     }
-     function bmw(){
-         echo "This is bmw<br>";
-     }
- }
+//      function volvo(){
+//          echo "This is volvo<br>";
+//          return $this;
+//      }
+//      function marcedes(){
+//          echo "this is marcedes <br>";
+//          return $this;
+//      }
+//      function bmw(){
+//          echo "This is bmw<br>";
+//      }
+//  }
 
- $car = new Car();
- $car->volvo()->marcedes()->bmw();
+//  $car = new Car();
+//  $car->volvo()->marcedes()->bmw();
+
+
+/**
+ * Magic Methods: Magic methods are methods those are  automatically called based on logic.\
+ * Prefix __ double underscore is the sign of magic methods.
+ */
+
+ // Magic Method -> Autoload is deprecated in php 7.2. And removed in php 8. 
+ // Use spl_autoload_register() function instead of autoload method.
+
+// spl_autoload_register(fn($class) => require "classes/" . $class . '.php');
+//  $show = new First();
+//  $show1 = new Second();
+//  $show2 = new Third();
+
+
+// Magic Method : __get;
+
+
+class Car{
+    private $marcedes = array("brand" => 'Marcedes', "color" => "Teal", "millage" => 30 );
+    private $volvo = 'Volvo';
+
+    public function __get($key){
+        if(key_exists($key, $this->marcedes)){
+            return $this->marcedes[$key];
+        }else{
+            return "<span style='color:red'>X - </span> $key is undefined.";
+        }
+        echo "$key is private or not existing in class";
+    }
+    public function __set($key, $value){
+        if(property_exists($this,$key)){
+            $this->$key = $value;   
+        }else{
+            echo "$key is not exist";
+        }
+    }
+
+    function one(){
+        echo $this->volvo;
+    }
+
+}
+
+$car = new Car();
+$car->volvo = 'Audi';
+$car->one();
+
 
 
 
