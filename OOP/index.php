@@ -235,39 +235,84 @@
 //  $show1 = new Second();
 //  $show2 = new Third();
 
+// class Car{
+//     private $marcedes = array("brand" => 'Marcedes', "color" => "Teal", "millage" => 30 );
+//     private $volvo = 'Volvo';
 
-// Magic Method : __get;
+//     // Magic Method : __get;
+//     public function __get($key){
+//         if(key_exists($key, $this->marcedes)){
+//             return $this->marcedes[$key];
+//         }else{
+//             return "<span style='color:red'>X - </span> $key is undefined.";
+//         }
+//         echo "$key is private or not existing in class";
+//     }
+
+//     // Magic Method : __set;
+//     public function __set($key, $value){
+//         if(property_exists($this,$key)){
+//             $this->$key = $value;   
+//         }else{
+//             echo "$key is not exist";
+//         }
+//     }
+
+//     function one(){
+//         echo $this->volvo;
+//     }
+
+// }
+
+// $car = new Car();
+// $car->volvo = 'Audi';
+// $car->one();
+
+// Magic Method : __call();
+
+// class MyClass{
+//     public $fname, $lname;
+//     private function hello($fname, $lname){
+//         $this->fname = $fname;
+//         $this->lname = $lname;
+//        return  $full_name = $this->fname . ' ' . $this->lname;
+//     }
+
+//     public function __call($method, $arg){
+//             if(method_exists($this, $method)){
+//                 call_user_func_array([$this, $method], $arg);
+//             }else{
+//                 echo "Method does not exist : $method";
+//             }
+//     }
+// }
+
+// $hello = new MyClass();
+// $hello->hello('sharif','uddin');
 
 
-class Car{
-    private $marcedes = array("brand" => 'Marcedes', "color" => "Teal", "millage" => 30 );
-    private $volvo = 'Volvo';
+// Magic Method : __callStatic 
 
-    public function __get($key){
-        if(key_exists($key, $this->marcedes)){
-            return $this->marcedes[$key];
-        }else{
-            return "<span style='color:red'>X - </span> $key is undefined.";
-        }
-        echo "$key is private or not existing in class";
+
+class MyStatic{
+    // Static Method 
+    private static function hello($name){
+        echo "Welcome $name";
     }
-    public function __set($key, $value){
-        if(property_exists($this,$key)){
-            $this->$key = $value;   
+    // __callStatic Method
+    // CallStatic Method must to be static
+    public static function __callStatic($method,$arg){
+        if(method_exists(__class__,$method)){
+            call_user_func_array([__class__,$method],$arg);
         }else{
-            echo "$key is not exist";
+            echo "Method Does not exist : $method";
         }
-    }
-
-    function one(){
-        echo $this->volvo;
     }
 
 }
+MyStatic::hello('sharif');
 
-$car = new Car();
-$car->volvo = 'Audi';
-$car->one();
+
 
 
 
