@@ -294,23 +294,24 @@
 // Magic Method : __callStatic 
 
 
-class MyStatic{
-    // Static Method 
-    private static function hello($name){
-        echo "Welcome $name";
-    }
-    // __callStatic Method
-    // CallStatic Method must to be static
-    public static function __callStatic($method,$arg){
-        if(method_exists(__class__,$method)){
-            call_user_func_array([__class__,$method],$arg);
-        }else{
-            echo "Method Does not exist : $method";
-        }
-    }
+// class MyStatic{
+//     // Static Method 
+//     private static function hello($name){
+//         echo "Welcome $name";
+//     }
+//     // __callStatic Method
+//     // CallStatic Method must to be static
+//     public static function __callStatic($method,$arg){
+//         if(method_exists(__class__,$method)){
+//             call_user_func_array([__class__,$method],$arg);
+//         }else{
+//             echo "Method Does not exist : $method";
+//         }
+//     }
+// }
+// MyStatic::hello('sharif');
 
-}
-MyStatic::hello('sharif');
+
 
 
 
