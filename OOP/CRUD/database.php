@@ -65,7 +65,7 @@ class Database{
 
     }
 
-    // Pagination 
+    // Pagination a
     function pagination(){
         
     }
