@@ -39,7 +39,7 @@
                             <th>Age</th>
                             <th>City</th>
                             <th>Date Of Birth</th>
-                            <th>Action</th>
+                            <!-- <th>Action</th> -->
                         </tr>
                     </thead>
                     <tbody id='table-data'>
@@ -47,6 +47,7 @@
                     </tbody>
                 </table>
             </div>
+
 
             <div id="modal">
                 <div id="modal-form">
@@ -57,12 +58,10 @@
                 <div id='close'>X</div>
                 </div>
             </div>
-
-
         </div>
     </div>
     <script src="dist/jQuery.js"></script>
-    <script src="dist/ajax.js"></script>
+  <script src="dist/ajax.js"></script>
 </body>
 
 </html>

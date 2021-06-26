@@ -73,8 +73,57 @@ class Database{
     }
 
     // Pagination a
-    function pagination(){
-        
+    function pagination($url,$table,$where = null, $limit = null, $join1 = null, $join2 = null, $join3 = null){
+        if($this->table_exist($table)){
+            if($limit != null){
+                $sql = "SELECT COUNT(*) FROM {$table} ";
+                if($where != null){
+                    $sql .= "WHERE {$where} ";
+                }
+                if($join1 != null){
+                        $sql .= "JOIN {$join1} ";
+                    }
+                    
+                if($join2 != null){
+                        $sql .= "JOIN {$join2} ";
+                    }
+                    
+                    if($join3 != null){
+                        $sql .= "JOIN {$join3} ";
+                    }
+                $query = $this->mysqli->query($sql);
+                $total_records = $query->fetch_array();
+                $total_records = $total_records[0];
+                $total_pages = ceil($total_records / $limit);
+
+                if(isset($_GET['page'])){
+                    $page = $_GET['page'];
+                }else{
+                    $page = 1;
+                }
+                if($total_records > $limit){
+                    $output = "<ul class='pagination'>";
+                    // Previous Page
+                    if($page > 1){
+                        $output .= "<li><a href='$url?page=". ($page - 1) ."'>Prev</a></li>";
+                    }
+
+                      for($i=1; $i < $total_pages; $i++){
+                        $active = ($i == $page)? "class='active'" : '';
+                        $output .= "<li><a {$active} href='{$url}?page={$i}'>{$i}</a></li>";
+                       }
+                    // Next Page
+                    if($total_pages > $page){
+                         $output .= "<li><a href='$url?page=". ($page + 1) ."'>Next</a></li>";
+                    }
+                    $output .= "</ul>";
+                    echo $output;
+                }
+             
+            }else{
+                return false;
+            }
+        }
     }
     // Fetch Data From Database on Condition
     function sql($sql){
