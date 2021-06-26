@@ -50,7 +50,14 @@ class Database{
             $sql .= "ORDER BY {$order} ";
         }
         if($limit !=null){
-            $sql .= "LIMIT $limit";
+
+            if(isset($_GET['page'])){
+                $page = $_GET['page'];
+            }else{
+                $page = 1;
+            }
+            $start = ($page - 1) * $limit;
+            $sql .= "LIMIT {$start},{$limit}";
         }
         $query = $this->mysqli->query($sql);
         if($query){
